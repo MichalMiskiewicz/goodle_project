@@ -1,0 +1,95 @@
+section {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 2em;
+    padding: 2em;
+    overflow: auto;
+    
+}
+
+/*#gradient1{
+    position:absolute;
+    right:0; bottom:0; left:0;
+    height:4em; 
+    -topaddingp: 4em;
+    background: url(data:image/svg+xml;base64,alotofcodehere);
+    background: -moz-linear-gradient(top,  rgba(255,255,255,0) 0%, rgba(255,255,255,1) 50%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,0)), color-stop(50%,rgba(255,255,255,1)));
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%);
+    background: -o-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%);
+    background: -ms-linear-gradient(top,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,0) 0%,rgba(255,255,255,1) 50%);
+}
+
+#gradient2 {
+    position:absolute;
+    right:0; top:0; left:0;
+    margin-top: 6.5em;
+    height:4em; 
+    background: url(data:image/svg+xml;base64,alotofcodehere);
+    background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(50%,rgba(255,255,255,0)));
+    background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+    background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+    background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+    background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%, rgba(255,255,255,0) 50%);
+}
+*/
+
+.products>div>img {
+    height: 50%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.products>div>div {
+    height: 50%;
+    margin-left: 1em;
+    font: normal normal bold 12px/30px Arial;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    min-width: 200px;
+}
+
+.products>div {
+    border: 1px solid grey;
+    background: #FFCD43B2 0% 0% no-repeat padding-box;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border:none;
+}
+
+
+
+@media only screen and (max-device-width: 420px) {
+    section {
+        grid-template-columns: repeat(1, 1fr);
+        width: 100vw;
+    }
+    
+    
+    .products>div>img {
+        height: 70%;
+        width: 100%;
+        object-fit: cover;
+    }
+    
+    .products>div>div {
+        width: 50%;
+        height: 50%;
+    }
+    
+    .products>div {
+        border: 1px solid grey;
+        background: #FFCD43B2 0% 0% no-repeat padding-box;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border:none;
+    }
+}
