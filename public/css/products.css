@@ -14,23 +14,62 @@ section {
 
 .products>div>div {
     height: 50%;
-    margin-left: 1em;
-    font: normal normal bold 12px/30px Arial;
+    margin: 0 0.2em;
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    min-width: 200px;
+    justify-content: space-evenly;
+    min-width: 15.625em;
+    align-items: flex-start;
+}
+
+.products>div>div>h2 {
+    min-height: 1.75em;
+    height: 8%;
+}
+
+.products>div>div>p {
+    height: 70%;
+    margin: 0 auto;
+    font: normal normal 1em/30px Arial;
+    overflow:auto;
+    line-height: 1em;
+    clear:both;
+}
+
+.social-section {
+    min-height: 0.625em;
+    margin-top: auto;
+    
+    height: 8%;
+    margin: 2% 0;
+}
+
+.fa-heart:before {
+    letter-spacing: 0.625em;
+}
+
+.fa-heart {
+    
+    margin-right: 0.93em;
+}
+
+.fa-minus-square:before {
+    letter-spacing: 0.625em;
 }
 
 .products>div {
     border: 1px solid grey;
     background: #FFCD43B2 0% 0% no-repeat padding-box;
-    height: 400px;
+    height: 31.25em;
+    min-height: 18.75em;
+    min-width: 17.5em;
+
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     border:none;
+    
 }
 
 #footer {
@@ -46,19 +85,17 @@ section {
     }
 
     nav {
+        width: 100%;
         height: 20vh;
         min-height: auto;
         position: relative;
         border:none;
         justify-content: center;
+        z-index:100;
     }
 
     nav>ul {
         display: none;
-    }
-
-    nav {
-        width: 100%;
     }
 
     nav>img {
@@ -68,18 +105,32 @@ section {
     }
 
     .username {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        align-items: center;
         position: absolute;
-        width: 10vw;
-        top: 10px;
-        right: 10px;
-        font-size: 2vh;
-        flex-direction: row-reverse;
-        justify-content:space-around;
+        left:1em;
+        top: 1em;
+        margin-bottom: 10%;
+        width: 20%;
+        color: white;
     }
-
-    .username>a {
-        font-size: 1.1vh;
-        margin-left: 15px;
+    
+    .username > a {
+        color:#F55007B2;
+        margin-right: 1em;
+        width: fit-content;
+        font-size: 2vh;
+    }
+    
+    .username > p {
+        font:normal normal normal 15px/27px Segoe UI;
+        border-bottom: 1px solid #F55007B2;
+        color:white;
+        margin: 0;
+        width: fit-content;
+        font-size: 2vh;
     }
 
     header {
@@ -93,7 +144,7 @@ section {
     .search-bar {
         margin: auto;
         width: 100vw;
-        font-size: 12px;
+        font-size: 0.75em;
         height: auto;
         
     }
@@ -112,36 +163,59 @@ section {
     }
 
     .products>div>img {
-        height: 50%;
+        height: 30%;
         width: 100%;
         object-fit: cover;
-        margin: auto;
+        margin: 0 auto;
     }
     
     .products>div>div {
-        width: 100%;
-        height: 50%;
+        width: 85%;
+        height: 70%;
+        font-size: 1.5em;
+        letter-spacing: 2px;
+        margin: 0 auto;
     }
     
+    .products>div>div>h2 {
+        height: 10%;
+    }
+
+    .products>div>div>p {
+        height: 75%;
+        max-height: 20em;
+        overflow: auto;
+        margin: 0;
+    }
+
+    .social-section {
+        height: 8%;
+        margin-top: 2%;
+    }
+
     .products>div {
         border: 1px solid grey;
         background: #FFCD43B2 0% 0% no-repeat padding-box;
-        height: 400px;
+        height: 50em;
         width: 80vw;
         border:none;
         margin:auto;
     }
 
+    
+
     #footer {
         width: 100vw;
         height: 5vh;
         background: transparent linear-gradient(340deg, #FFCD43B2 0%, #D43F07 100%) 0% 0% no-repeat padding-box;
-        display: block;
         display: flex;
         align-items: center;
-        display: block;
-        bottom: 0;
-        left: 0;
+        box-shadow: 0 0 2em #D43F07;
+        z-index: 100;
+    }
+
+    #footer:hover {
+        opacity: 0.7;
     }
 
     #footer>ul{

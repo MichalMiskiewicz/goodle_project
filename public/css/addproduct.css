@@ -1,0 +1,165 @@
+
+main{
+    display: flex;
+    justify-content:space-around;
+    
+}
+
+#addform {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    margin: 0 auto;
+}
+
+#addform > input {
+    width: auto;
+    height: auto;
+    margin: 1.25em 0;
+    font-size: 2vh;
+    
+    text-align: center;
+    color:white;
+    background: transparent linear-gradient(234deg, #FFE01C 0%, #FBB62E 100%) 0% 0% no-repeat padding-box;
+    border: 3px solid #FFCD43B2;
+    border-radius: 4px;
+}
+
+form>::placeholder{
+    color: white;
+}
+
+#addform > div > p {
+    color: #FBB62E;
+    font-size: 2vh;
+}
+
+form > #desc {
+    width: auto;
+    height: inherit;
+    font-size: 2vh;
+    color:white;
+    background: transparent linear-gradient(234deg, #FFE01C 0%, #FBB62E 100%) 0% 0% no-repeat padding-box;
+    border: 3px solid #FFCD43B2;
+    border-radius: 4px;
+    outline: none;
+    min-height: 15em;
+    max-height: 25em;
+    resize: none;
+}
+
+.horizontal {
+    display: flex;
+    flex-direction: row;
+    height: fit-content;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+form > #add {
+    margin: auto;
+    margin-right: 0.75em;
+    width: 20vh;
+}
+
+form > p {
+    width: fit-content;
+    color: #FFCD43B2;
+}
+
+/*SWITCH BUTTON*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 3.75em;
+    height: 2.125em;
+    margin:2em;
+}
+
+.switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: inherit;
+    background-color: rgb(218, 89, 3);
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 1.625em;
+    width: 1.625em;
+    left: 0.25em;
+    bottom: 0.25em;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+    background: transparent linear-gradient(234deg, #FFE01C 0%, #FBB62E 100%) 0% 0% no-repeat padding-box;
+}
+
+input:focus + .slider {
+    box-shadow: 0 0 1px #FBB62E;
+}
+
+input:checked + .slider:before {
+    -webkit-transform: translateX(1.625em);
+    -ms-transform: translateX(1.625em);
+    transform: translateX(1.625em);
+}
+
+/* Rounded sliders */
+.slider.round {
+    border-radius: 2.125em;
+}
+
+.slider.round:before {
+    border-radius: 50%;
+}
+
+/*--END--SWITCH BUTTON*/
+
+
+
+@media only screen and (max-device-width: 420px) {
+    main {
+      padding: 0;  
+      height: 74.9vh;
+    }
+
+    #addform {
+        width: 80vw;
+    }
+    
+    #addform > input {
+        font-size: 1.5vh;
+    }
+
+    #addform > #desc {
+        font-size: 1.5vh;
+    }
+
+    .addproduct{
+        width: 80vw;
+        font-size: 1.5vh;
+    }
+
+    textarea, input {
+        font-size: 1.5vh;
+    }
+
+   
+}
