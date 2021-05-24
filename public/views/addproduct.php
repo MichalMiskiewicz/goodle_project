@@ -25,10 +25,18 @@
            
         </nav>
         <main>
-             <form id="addform" class="addproduct">
+             <form id="addform" class="addproduct" action="addproduct" method="POST" ENCTYPE="multipart/form-data">
+                 <div class="messages">
+                     <?php if(isset($messages)){
+                         foreach ($messages as $message){
+                             echo $message;
+                         }
+                     }
+                     ?>
+                 </div>
                 <input id="name" name="name" type="text" placeholder="product name">
                 <textarea id="desc" name="description" placeholder="Type something about it ..." form="addform"></textarea>
-                <input class="bt" id="imgbt" type="file" id="myFile" name="filename">
+                <input class="bt" id="imgbt" type="file" name="file">
                 <div class="horizontal">
                      <p>comments</p>
                     <label class="switch">

@@ -34,11 +34,11 @@
             <section class="products">
                 
                 <div id="product-1">
-                    <img src="public/img/upload/lab02.png">
+                    <img src="public/uploads/<?= $product->getImage() ?>">
                     <div>
-                        <h2>Title</h2>
-                        <p>Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym. Został po raz pierwszy użyty w XV w. przez nieznanego drukarza do wypełnienia tekstem próbnej książki. Pięć wieków później zaczął być używany przemyśle elektronicznym, pozostając praktycznie niezmienionym. Spopularyzował się w latach 60. XX w. wraz z publikacją arkuszy Letrasetu, zawierających fragmenty Lorem Ipsum, a ostatnio z zawierającym różne wersje Lorem Ipsum oprogramowaniem przeznaczonym do realizacji druków na komputerach osobistych, jak Aldus PageMaker</p>
-                        <div class="social-section">
+                        <h2><?= $product->getTitle() ?></h2>
+                        <p><?= $product->getDescription() ?></p>
+                       <div class="social-section">
                             <i style="color: red" class="fas fa-heart">600</i>
                             <i style="color: lightseagreen" class="fas fa-minus-square">101</i>
                         </div>
