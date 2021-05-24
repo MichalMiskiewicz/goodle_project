@@ -1,0 +1,48 @@
+main{
+    width: 100vw;
+}
+
+#signin {
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    align-items: center;
+    margin: auto;
+}
+
+#signin input {
+    width: 30vh;
+}
+
+#signin #add {
+    width: 10vw;
+    height: auto;
+    text-align: center;
+    line-height: 2em;
+    min-width: 150px;
+    
+
+    background: transparent linear-gradient(234deg, #FFE01C 0%, #FBB62E 100%) 0% 0% no-repeat padding-box;
+    border: 3px solid #FFCD43B2;
+    border-radius: 4px;
+}
+
+@media only screen and (max-device-width: 420px) {
+    html{
+        width: 100vw;
+        height: 100vh;
+    }
+
+    #signin {
+        width: 50vw;
+    }
+
+    #signin input {
+        width: 25vh;
+        font-size: 2em;
+    }
+
+    main{
+        height: 100vh;
+    }
+}

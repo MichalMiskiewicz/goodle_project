@@ -19,4 +19,8 @@ class DefaultController extends AppController {
     public function addproduct() {
         $this->render('addproduct');
     }
+
+    public function registration() {
+        $this->render('registration');
+    }
 }
