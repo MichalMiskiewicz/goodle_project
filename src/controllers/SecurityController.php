@@ -15,13 +15,12 @@ class SecurityController extends AppController
         }
 
         $email = $_POST['email'];
-        $password = $_POST['password'];
+        $password = md5($_POST['password']);
 
         $user = $userRepository->getUser($email);
 
         if(!$user){
             return $this->render('login', ['messages' => ['User not exist!']]);
-
         }
 
         if ($user->getEmail() !== $email) {
@@ -34,5 +33,24 @@ class SecurityController extends AppController
 
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/products");
+    }
+
+    public function registration(){
+        $userRepository = new UserRepository();
+
+        if (!$this->isPost()) {
+            return $this->render('registration');
+        }
+
+        $name = $_POST['name'];
+        $surname = $_POST['surname'];
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+        $user = new User($name, $surname, $email, md5($password));
+
+        $userRepository->setUser($user);
+
+        $url = "http://$_SERVER[HTTP_HOST]";
+        header("Location: {$url}/login");
     }
 }

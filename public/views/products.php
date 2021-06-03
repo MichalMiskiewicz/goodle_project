@@ -32,9 +32,8 @@
                 </div>
             </header>
             <section class="products">
-                
                 <div id="product-1">
-                    <img src="public/uploads/<?= $product->getImage() ?>">
+                    <img src="public/uploads/<?=$product->getImage() ?>">
                     <div>
                         <h2><?= $product->getTitle() ?></h2>
                         <p><?= $product->getDescription() ?></p>
@@ -44,7 +43,7 @@
                         </div>
                     </div>
                 </div>
-                <div id="product-2">
+                <!--<div id="product-2">
                     <img src="public/img/upload/lab02.png">
                     <div>
                         <h2>Title</h2>
@@ -76,7 +75,7 @@
                             <i style="color: lightseagreen" class="fas fa-minus-square">101</i>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 
             </section>
         </main>

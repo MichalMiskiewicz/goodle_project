@@ -10,10 +10,12 @@
 <body>
     <div class="base-container">
         <main>
-             <form id="signin" class="signin">
-                <input id="mail" name="mail" type="text" placeholder="e-mail address">
-                <input id="password" name="password" type="text" placeholder="password">
-                <input class="bt" id="add" value="sign-in" type="submit">
+             <form id="signin" class="signin" action="registration" method="POST">
+                 <input id="name" name="name" type="text" placeholder="name">
+                 <input id="surname" name="surname" type="text" placeholder="surname">
+                 <input id="mail" name="email" type="text" placeholder="e-mail address">
+                 <input id="password" name="password" type="password" placeholder="password">
+                 <input class="bt" id="add" value="sign-in" type="submit">
               </form>
         </main>
     </div>

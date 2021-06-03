@@ -75,6 +75,12 @@ button {
     
 }
 
+button a:link, a:visited {
+    text-decoration: none;
+    color: white;
+    height: 0;
+}
+
 input {
     background-color: transparent;
     border: none;
