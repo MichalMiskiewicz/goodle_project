@@ -31,8 +31,20 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
+        $_SESSION["accept"] = $user;
+        session_write_close();
+
         $url = "http://$_SERVER[HTTP_HOST]";
         header("Location: {$url}/products");
+    }
+
+    public function logout(){
+
+        session_destroy();
+        $_SESSION = array();
+        header("Location: http://$_SERVER[HTTP_HOST]");
+        exit();
+
     }
 
     public function registration(){
@@ -51,6 +63,6 @@ class SecurityController extends AppController
         $userRepository->setUser($user);
 
         $url = "http://$_SERVER[HTTP_HOST]";
-        header("Location: {$url}/login");
+        header("Location: {$url}");
     }
 }

@@ -20,6 +20,7 @@ class ProductController extends AppController
 
 
     public function addProduct(){
+        parent::session();
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])){
             move_uploaded_file(
                 $_FILES['file']['tmp_name'],
@@ -28,18 +29,19 @@ class ProductController extends AppController
 
             $product = new Product($_POST['name'], $_POST['description'], $_FILES['file']['name']);
             $this->productRepository->addProduct($product);
+            header("Location: http://$_SERVER[HTTP_HOST]/products");
 
-            return $this->render('products', ["messages" => $this->messages, 'product' => $product]);
+        }else{
+            $this->render('addproduct', ["messages" => $this->messages]);
         }
 
 
-        $this->render('addproduct', ["messages" => $this->messages]);
     }
 
-    public function showProduct(){
-        if ($this->isPost()) {
-            return $this->render('products', ["messages" => $this->messages, 'product' =>  $this->productRepository->getProduct(1)]);
-        }
+    public function products(){
+        //echo $this->productRepository->getProducts(2)[1]->getTitle();
+        parent::session();
+        $this->render('products', ['messages' => $this->messages, 'products' => $this->productRepository->getProducts(2)]);
 
     }
 

@@ -18,8 +18,8 @@
                 <li><a href="addproduct" class="button">add product</a></li>
             </ul>
             <div class="username">
-                <a href="#" class="sing-out"><i class="fas fa-sign-out-alt"></i></a>
-                <p>username</p>
+                <a href="logout" class="sing-out"><i class="fas fa-sign-out-alt"></i></a>
+                <p style="color:black;"><?php echo ''.explode('@',$_SESSION['accept']->getEmail())[0];?></p>
             </div>
         </nav>
         <main>
@@ -32,17 +32,18 @@
                 </div>
             </header>
             <section class="products">
-                <div id="product-1">
-                    <img src="public/uploads/<?=$product->getImage() ?>">
+                <?php foreach ($products as $product){
+                    echo '<div id="product-1"><img src="public/uploads/'.$product->getImage().'">
                     <div>
-                        <h2><?= $product->getTitle() ?></h2>
-                        <p><?= $product->getDescription() ?></p>
+                        <h2>'.$product->getTitle().'</h2>
+                        <p>'.$product->getDescription().'</p>
                        <div class="social-section">
                             <i style="color: red" class="fas fa-heart">600</i>
                             <i style="color: lightseagreen" class="fas fa-minus-square">101</i>
                         </div>
                     </div>
-                </div>
+                </div>';
+                }; ?>
                 <!--<div id="product-2">
                     <img src="public/img/upload/lab02.png">
                     <div>

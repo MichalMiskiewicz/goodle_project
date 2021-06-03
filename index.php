@@ -2,15 +2,17 @@
 
 require 'Routing.php';
 
+session_start();
+
 $path = trim($_SERVER['REQUEST_URI'], '/');
 $path = parse_url($path, PHP_URL_PATH);
 
-Routing::get('index', 'DefaultController');
-Routing::get('products', 'DefaultController');
+Routing::get('', 'DefaultController');
+Routing::get('products', 'ProductController');
 Routing::get('favourites', 'DefaultController');
-Routing::get('addproduct', 'DefaultController');
+Routing::get('addproduct', 'ProductController');
 Routing::get('registration', 'SecurityController');
 Routing::post('login', 'SecurityController');
 Routing::get('addproduct', 'ProductController');
-
+Routing::get('logout', 'SecurityController');
 Routing::run($path);

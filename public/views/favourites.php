@@ -18,8 +18,8 @@
                 <li><a href="addproduct" class="button">add product</a></li>
             </ul>
             <div class="username">
-                <a href="#" class="sing-out"><i class="fas fa-sign-out-alt"></i></a>
-                <p>username</p>
+                <a href="logout" class="sing-out"><i class="fas fa-sign-out-alt"></i></a>
+                <p style="color:black;"><?php echo ''.explode('@',$_SESSION['accept']->getEmail())[0];?></p>
             </div>
         </nav>
     

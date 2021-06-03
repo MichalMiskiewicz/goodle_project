@@ -6,23 +6,28 @@ require_once __DIR__.'/../models/Product.php';
 class ProductRepository extends Repository
 {
 
-    public function getProduct(string $id): ?Product
+    public function getProducts(string $id): array
     {
-        $stmt = $this->database->connect()->prepare('SELECT * FROM public.product WHERE id = :id');
-        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $productsTable = [];
+
+        $stmt = $this->database->connect()->prepare('SELECT * FROM public.product');
+        //$stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
 
-        $product = $stmt->fetch(PDO::FETCH_ASSOC);
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        if ($product == false) {
-            return null;
+        foreach ($products as $product){
+            $productsTable[] = new Product(
+                $product['title'],
+                $product['description'],
+                $product['image']
+            );
         }
-        echo "działa!!!";
-        return new Product(
-            $product['title'],
-            $product['description'],
-            $product['image']
-        );
+        //echo "".$productsTable[1]->getDescription();
+
+        //echo "działa!!!".$product['title'];
+
+        return $productsTable;
     }
 
     public function addProduct(Product $product) {
