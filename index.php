@@ -17,4 +17,7 @@ Routing::post('login', 'SecurityController');
 Routing::get('addproduct', 'ProductController');
 Routing::get('logout', 'SecurityController');
 Routing::post('search', 'ProductController');
+Routing::get('like', 'ProductController');
+Routing::get('dislike', 'ProductController');
+
 Routing::run($path);

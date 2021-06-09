@@ -6,6 +6,7 @@
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="public/script/navbar.js" defer></script>
     <script type="text/javascript" src="public/script/search.js" defer></script>
+    <script type="text/javascript" src="public/script/statistics.js" defer></script>
     <title>Products</title>
 </head>
 <body>
@@ -32,13 +33,13 @@
             </header>
             <section class="products">
                 <?php foreach ($products as $product){
-                    echo '<div id="product-1"><img src="public/uploads/'.$product->getImage().'">
+                    echo '<div id="'.$product->getId().'"><img src="public/uploads/'.$product->getImage().'">
                     <div>
                         <h2>'.$product->getTitle().'</h2>
                         <p>'.$product->getDescription().'</p>
                        <div class="social-section">
-                            <i style="color: red" class="fas fa-heart">600</i>
-                            <i style="color: lightseagreen" class="fas fa-minus-square">101</i>
+                            <i style="color: red" class="fas fa-heart">'.$product->getLike().'</i>
+                            <i style="color: lightseagreen" class="fas fa-minus-square">'.$product->getDislike().'</i>
                         </div>
                     </div>
                 </div>';

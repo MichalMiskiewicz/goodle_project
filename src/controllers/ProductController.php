@@ -56,6 +56,17 @@ class ProductController extends AppController
             echo json_encode($this->productRepository->getProductByKeywords($decoded['search']));
         }
     }
+
+    public function like(int $id){
+        $this->productRepository->like($id);
+        http_response_code(200);
+    }
+
+    public function dislike(int $id){
+        $this->productRepository->dislike($id);
+        http_response_code(200);
+    }
+
     private function validate($file): bool{
         if($file['size'] > self::MAX_FILE_SIZE){
             $this->messages[] = 'File is too large!';
