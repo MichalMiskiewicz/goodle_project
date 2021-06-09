@@ -4,7 +4,8 @@
     <link rel="stylesheet" type="text/css" href="public/css/products.css">
     <script src="https://kit.fontawesome.com/2715bae171.js" crossorigin="anonymous"></script>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="public/script/navbar.js"></script>
+    <script type="text/javascript" src="public/script/navbar.js" defer></script>
+    <script type="text/javascript" src="public/script/search.js" defer></script>
     <title>Products</title>
 </head>
 <body>
@@ -19,16 +20,14 @@
             </ul>
             <div class="username">
                 <a href="logout" class="sing-out"><i class="fas fa-sign-out-alt"></i></a>
-                <p style="color:black;"><?php echo ''.explode('@',$_SESSION['accept']->getEmail())[0];?></p>
+                <p style="color:black;"><?php echo $_COOKIE['accept'];?></p>
             </div>
         </nav>
         <main>
             <header>
                 <img src="public/img/logo.svg">
                 <div class="search-bar">
-                    <form>
-                        <input placeholder="search">
-                    </form>
+                    <input placeholder="search">
                 </div>
             </header>
             <section class="products">
@@ -44,40 +43,6 @@
                     </div>
                 </div>';
                 }; ?>
-                <!--<div id="product-2">
-                    <img src="public/img/upload/lab02.png">
-                    <div>
-                        <h2>Title</h2>
-                        <p>Lorem Ipsum jest tekstem stosowanym jako przykładowy wypełniacz w przemyśle poligraficznym.</p>
-                        <div class="social-section">
-                            <i style="color: red" class="fas fa-heart">600</i>
-                            <i style="color: lightseagreen" class="fas fa-minus-square">101</i>
-                        </div>
-                    </div>
-                </div>
-                <div id="product-3">
-                    <img src="public/img/upload/lab02.png">
-                    <div>
-                        <h2>Title</h2>
-                        <p>description</p>
-                        <div class="social-section">
-                            <i style="color: red" class="fas fa-heart">600</i>
-                            <i style="color: lightseagreen" class="fas fa-minus-square">101</i>
-                        </div>
-                    </div>
-                </div>
-                <div id="product-4">
-                    <img src="public/img/upload/lab02.png">
-                    <div>
-                        <h2>Title</h2>
-                        <p>description</p>
-                        <div class="social-section">
-                            <i style="color: red" class="fas fa-heart">600</i>
-                            <i style="color: lightseagreen" class="fas fa-minus-square">101</i>
-                        </div>
-                    </div>
-                </div> -->
-                
             </section>
         </main>
         <div id="footer">
@@ -89,3 +54,16 @@
         </div>
     </div>
 </body>
+
+<template id="product-template">
+    <div id="product-1"><img src="">
+        <div>
+            <h2>title</h2>
+            <p>description</p>
+            <div class="social-section">
+                <i style="color: red" class="fas fa-heart">600</i>
+                <i style="color: lightseagreen" class="fas fa-minus-square">101</i>
+            </div>
+        </div>
+    </div>
+</template>

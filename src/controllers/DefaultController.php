@@ -9,17 +9,17 @@ class DefaultController extends AppController {
     }
 
     public function products() {
-        parent::session();
+        parent::cookie();
         $this->render('products');
     }
 
     public function favourites() {
-        parent::session();
+        parent::cookie();
         $this->render('favourites');
     }
 
     public function addproduct() {
-        parent::session();
+        parent::cookie();
         $this->render('addproduct');
     }
 

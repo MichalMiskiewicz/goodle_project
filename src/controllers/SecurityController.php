@@ -31,7 +31,9 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
-        $_SESSION["accept"] = $user;
+        //$_SESSION["accept"] = $user;
+        setcookie('accept', explode('@',$user->getEmail())[0]);
+
         session_write_close();
 
         $url = "http://$_SERVER[HTTP_HOST]";
@@ -39,12 +41,11 @@ class SecurityController extends AppController
     }
 
     public function logout(){
-
-        session_destroy();
-        $_SESSION = array();
+        //session_destroy();
+       // $_SESSION = array();
+        setcookie("accept", "", time() - 3600);
         header("Location: http://$_SERVER[HTTP_HOST]");
         exit();
-
     }
 
     public function registration(){

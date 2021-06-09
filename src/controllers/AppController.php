@@ -33,8 +33,10 @@ class AppController {
         print $output;
     }
 
-    protected function session(){
-        if(!isset($_SESSION['accept']))
+    protected function cookie(){
+        /*if(!isset($_SESSION['accept']))
+            header("Location: http://$_SERVER[HTTP_HOST]");*/
+        if(!isset($_COOKIE['accept']))
             header("Location: http://$_SERVER[HTTP_HOST]");
     }
 }

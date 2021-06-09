@@ -75,12 +75,6 @@ button {
     
 }
 
-button a:link, a:visited {
-    text-decoration: none;
-    color: white;
-    height: 0;
-}
-
 input {
     background-color: transparent;
     border: none;
@@ -166,6 +160,7 @@ a {
     text-decoration: none;
     display: inline-block;
     line-height: 2em;
+    color: white;
 }
 
 button, input, span, label {
@@ -260,17 +255,27 @@ header>img {
 
 
 .search-bar {
+    margin: auto;
     width: 50%;
-    
+    font-size: 0.75em;
+    height: auto;
+
 }
 
-.search-bar>form>input {
+.search-bar>input {
+    display: flex;
+    justify-content: center;
+    font-size: 1.5vh;
+    width: 80vw;
+    height: auto;
+
     background: #FFFFFF 0% 0% no-repeat padding-box;
     border: 5px solid #F55007B2;
     border-radius: 2.125em;
     width: 100%;
     text-align: center;
 }
+
 
 @media only screen and (max-device-width: 420px) {
     .base-container {

@@ -1,8 +1,9 @@
 <?php
-
+header('Access-Control-Allow-Origin: *');
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Product.php';
 require_once __DIR__.'/../repository/ProductRepository.php';
+
 class ProductController extends AppController
 {
     const MAX_FILE_SIZE = 1024*1024;
@@ -20,7 +21,7 @@ class ProductController extends AppController
 
 
     public function addProduct(){
-        parent::session();
+        parent::cookie();
         if($this->isPost() && is_uploaded_file($_FILES['file']['tmp_name']) && $this->validate($_FILES['file'])){
             move_uploaded_file(
                 $_FILES['file']['tmp_name'],
@@ -40,11 +41,21 @@ class ProductController extends AppController
 
     public function products(){
         //echo $this->productRepository->getProducts(2)[1]->getTitle();
-        parent::session();
+        parent::cookie();
         $this->render('products', ['messages' => $this->messages, 'products' => $this->productRepository->getProducts(2)]);
 
     }
 
+    public function search(){
+        $contentType = isset($_SERVER["CONTENT_TYPE"]) ? trim($_SERVER["CONTENT_TYPE"]) : '';
+        if($contentType === "application/json"){
+            $content = trim(file_get_contents("php://input"));
+            $decoded = json_decode($content, true);
+            header('Content-type: application/json');
+            http_response_code(200);
+            echo json_encode($this->productRepository->getProductByKeywords($decoded['search']));
+        }
+    }
     private function validate($file): bool{
         if($file['size'] > self::MAX_FILE_SIZE){
             $this->messages[] = 'File is too large!';

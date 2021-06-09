@@ -4,7 +4,8 @@
     <link rel="stylesheet" type="text/css" href="public/css/products.css">
     <script src="https://kit.fontawesome.com/2715bae171.js" crossorigin="anonymous"></script>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-    <script src="public/script/navbar.js"></script>
+    <script type="text/javascript" src="public/script/navbar.js"></script>
+    <script type="text/javascript" src="public/script/search.js" defer></script>
     <title>Favourites</title>
 </head>
 <body>
@@ -19,7 +20,7 @@
             </ul>
             <div class="username">
                 <a href="logout" class="sing-out"><i class="fas fa-sign-out-alt"></i></a>
-                <p style="color:black;"><?php echo ''.explode('@',$_SESSION['accept']->getEmail())[0];?></p>
+                <p style="color:black;"><?php echo $_COOKIE['accept'];?></p>
             </div>
         </nav>
     
@@ -27,9 +28,7 @@
         <main>
             <header>
                 <div class="search-bar">
-                    <form>
-                        <input placeholder="search">
-                    </form>
+                    <input placeholder="search">
                 </div>
             </header>
             <section class="products">
@@ -90,3 +89,16 @@
         </div>
     </div>
 </body>
+
+<template id=product-template_fav">
+    <div id="product-1"><img src="">
+        <div>
+            <h2>title</h2>
+            <p>description</p>
+            <div class="social-section">
+                <i style="color: red" class="fas fa-heart">600</i>
+                <i style="color: lightseagreen" class="fas fa-minus-square">101</i>
+            </div>
+        </div>
+    </div>
+</template>

@@ -141,27 +141,6 @@ section {
         justify-content: center;
     }
 
-    .search-bar {
-        margin: auto;
-        width: 100vw;
-        font-size: 0.75em;
-        height: auto;
-        
-    }
-
-    .search-bar>form {
-        width: 100vw;
-        display: flex; 
-        justify-content: center;
-        
-        height: auto;
-    }
-
-    .search-bar>form>input {
-        font-size: 1.5vh;
-        width: 80vw;
-    }
-
     .products>div>img {
         height: 30%;
         width: 100%;

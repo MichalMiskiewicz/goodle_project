@@ -41,4 +41,13 @@ class ProductRepository extends Repository
             $product->getImage()
         ]);
     }
+
+    public function getProductByKeywords(string $search){
+        $search = '%'.strtolower($search).'%';
+        $stmt = $this->database->connect()->prepare('SELECT * FROM public.product WHERE LOWER(title) LIKE :search OR LOWER(description) LIKE :search;');
+        $stmt->bindParam(':search', $search, PDO::PARAM_STR);
+        $stmt->execute();
+
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

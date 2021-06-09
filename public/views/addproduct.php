@@ -20,7 +20,7 @@
             </ul>
             <div class="username">
                 <a href="logout" class="sing-out"><i class="fas fa-sign-out-alt"></i></a>
-                <p style="color:black;"><?php echo ''.explode('@',$_SESSION['accept']->getEmail())[0];?></p>
+                <p style="color:black;"><?php echo $_COOKIE['accept'];?></p>
             </div>
            
         </nav>

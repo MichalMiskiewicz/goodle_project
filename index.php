@@ -2,7 +2,8 @@
 
 require 'Routing.php';
 
-session_start();
+//session_start();
+
 
 $path = trim($_SERVER['REQUEST_URI'], '/');
 $path = parse_url($path, PHP_URL_PATH);
@@ -15,4 +16,5 @@ Routing::get('registration', 'SecurityController');
 Routing::post('login', 'SecurityController');
 Routing::get('addproduct', 'ProductController');
 Routing::get('logout', 'SecurityController');
+Routing::post('search', 'ProductController');
 Routing::run($path);
