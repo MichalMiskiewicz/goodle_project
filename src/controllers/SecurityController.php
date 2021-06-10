@@ -31,9 +31,7 @@ class SecurityController extends AppController
             return $this->render('login', ['messages' => ['Wrong password!']]);
         }
 
-        //$_SESSION["accept"] = $user;
-        setcookie('accept', explode('@',$user->getEmail())[0]);
-
+        setcookie('accept', $user->getName()." ".$user->getSurname()."@id".$user->getId());
         session_write_close();
 
         $url = "http://$_SERVER[HTTP_HOST]";

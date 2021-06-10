@@ -25,7 +25,6 @@ search.addEventListener("keyup", function (event){
 
 function loadProducts(products){
     products.forEach(product => {
-        console.log(product.image);
         createProduct(product);
     });
 }
@@ -45,10 +44,11 @@ function createProduct(product){
     const description = clone.querySelector("p");
     description.innerHTML = product.description;
 
-   /* const like = clone.querySelector(".fa-heart");
+    const like = clone.querySelector(".fa-heart");
     like.innerText = product.like;
+
     const dislike = clone.querySelector(".fa-minus-square");
-    like.innerText = product.dislike;*/
+    dislike.innerText = product.dislike;
 
     productContainer.appendChild(clone);
 

@@ -1,5 +1,4 @@
 <?php
-header('Access-Control-Allow-Origin: *');
 require_once 'AppController.php';
 require_once __DIR__.'/../models/Product.php';
 require_once __DIR__.'/../repository/ProductRepository.php';
@@ -58,12 +57,25 @@ class ProductController extends AppController
     }
 
     public function like(int $id){
-        $this->productRepository->like($id);
+        if(($this->productRepository->checkLikeDislike($id, "like") == null)) {
+            $this->productRepository->like($id);
+            echo json_encode($this->productRepository->checkLikeDislike($id, "like")[0]);
+        }else{
+            $this->productRepository->deleteStatisticRowAndUpdateProduct($id, "like");
+            echo json_encode(array('like' => 'null'));
+        }
         http_response_code(200);
+
     }
 
     public function dislike(int $id){
-        $this->productRepository->dislike($id);
+        if(($this->productRepository->checkLikeDislike($id, "dislike") == null)) {
+            $this->productRepository->dislike($id);
+            echo json_encode($this->productRepository->checkLikeDislike($id, "dislike")[0]);
+        }else{
+            $this->productRepository->deleteStatisticRowAndUpdateProduct($id, "dislike");
+            echo json_encode(array('dislike' => 'null'));
+        }
         http_response_code(200);
     }
 

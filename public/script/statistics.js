@@ -7,8 +7,22 @@ function giveLike(){
     const id = container.getAttribute("id");
 
     fetch(`/like/${id}`)
-        .then(function (){
-            likes.innerHTML = parseInt(likes.innerHTML) + 1;
+        .then(function (response){
+            console.log(response);
+            if(response === null) {
+                return null;
+            }else{
+                return response.json();
+            }
+        })
+        .then(function (like){
+            console.log(like.like);
+            console.log(like);
+            if(like.like === 'null'){
+                likes.innerHTML = parseInt(likes.innerHTML) - 1;
+            }else {
+                likes.innerHTML = parseInt(likes.innerHTML) + 1;
+            }
         })
 }
 
@@ -18,8 +32,22 @@ function giveDislike(){
     const id = container.getAttribute("id");
 
     fetch(`/dislike/${id}`)
-        .then(function (){
-            dislikes.innerHTML = parseInt(dislikes.innerHTML) + 1;
+        .then(function (response){
+            console.log(response);
+            if(response === null) {
+                return null;
+            }else{
+                return response.json();
+            }
+        })
+        .then(function (dislike){
+            console.log(dislike.dislike);
+            console.log(dislike);
+            if(dislike.dislike === 'null'){
+                dislikes.innerHTML = parseInt(dislikes.innerHTML) - 1;
+            }else {
+                dislikes.innerHTML = parseInt(dislikes.innerHTML) + 1;
+            }
         })
 }
 

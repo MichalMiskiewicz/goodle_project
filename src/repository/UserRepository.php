@@ -8,7 +8,7 @@ class UserRepository extends Repository
 
     public function getUser(string $email): ?User
     {
-        $stmt = $this->database->connect()->prepare('SELECT ud.name, ud.surname, u.email, u.password
+        $stmt = $this->database->connect()->prepare('SELECT ud.name, ud.surname, u.email, u.password, u.id
                                                             FROM users u
                                                             JOIN users_details ud
                                                             ON u.id_user_details = ud.id
@@ -26,7 +26,8 @@ class UserRepository extends Repository
             $user['name'],
             $user['surname'],
             $user['email'],
-            $user['password']
+            $user['password'],
+            $user['id']
         );
     }
 

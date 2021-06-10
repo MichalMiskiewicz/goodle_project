@@ -21,7 +21,7 @@
             </ul>
             <div class="username">
                 <a href="logout" class="sing-out"><i class="fas fa-sign-out-alt"></i></a>
-                <p style="color:black;"><?php echo $_COOKIE['accept'];?></p>
+                <p style="color:black;"><?php echo explode('@id', $_COOKIE['accept'])[0];?></p>
             </div>
         </nav>
         <main>
