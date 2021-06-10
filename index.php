@@ -10,7 +10,7 @@ $path = parse_url($path, PHP_URL_PATH);
 
 Routing::get('', 'DefaultController');
 Routing::get('products', 'ProductController');
-Routing::get('favourites', 'DefaultController');
+Routing::get('favourites', 'ProductController');
 Routing::get('addproduct', 'ProductController');
 Routing::get('registration', 'SecurityController');
 Routing::post('login', 'SecurityController');

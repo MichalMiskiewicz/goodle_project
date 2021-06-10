@@ -39,10 +39,14 @@ class ProductController extends AppController
     }
 
     public function products(){
-        //echo $this->productRepository->getProducts(2)[1]->getTitle();
         parent::cookie();
-        $this->render('products', ['messages' => $this->messages, 'products' => $this->productRepository->getProducts(2)]);
+        $this->render('products', ['messages' => $this->messages, 'products' => $this->productRepository->getProducts("all")]);
 
+    }
+
+    public function favourites(){
+        parent::cookie();
+        $this->render('products', ['messages' => $this->messages, 'products' => $this->productRepository->getProducts("favourites")]);
     }
 
     public function search(){

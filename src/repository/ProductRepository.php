@@ -6,12 +6,16 @@ require_once __DIR__.'/../models/Product.php';
 class ProductRepository extends Repository
 {
 
-    public function getProducts(string $id): array
+    public function getProducts(string $x): array
     {
         $productsTable = [];
-
-        $stmt = $this->database->connect()->prepare('SELECT * FROM public.product');
-        //$stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        if ($x == "all") {
+            $stmt = $this->database->connect()->prepare('SELECT * FROM public.product');
+        }else {
+            $stmt = $this->database->connect()->prepare('SELECT * FROM public.product p JOIN users_product_statistics ups ON p.id = ups.id_product WHERE ups.id_user = :iduser AND ups.like = 1;');
+            $id_user = (int)explode('@id', $_COOKIE['accept'])[1];
+            $stmt->bindParam(':iduser', $id_user, PDO::PARAM_INT);
+        }
         $stmt->execute();
 
         $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -109,5 +113,26 @@ class ProductRepository extends Repository
 
         $stmt->execute();
         $stmt2->execute();
+    }
+
+    public function getFavourites(){
+        $productsTable = [];
+
+        $stmt = $this->database->connect()->prepare('SELECT * FROM public.product');
+        $stmt->execute();
+
+        $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($products as $product){
+            $productsTable[] = new Product(
+                $product['title'],
+                $product['description'],
+                $product['image'],
+                $product['like'],
+                $product['dislike'],
+                $product['id']
+            );
+        }
+        return $productsTable;
     }
 }
