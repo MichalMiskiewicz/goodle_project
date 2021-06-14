@@ -9,13 +9,14 @@ class User
     private $password;
     private $id;
 
-    public function __construct(string $name, string $surname, string $email, string $password, int $id)
+    public function __construct()
     {
-        $this->name = $name;
-        $this->surname = $surname;
-        $this->email = $email;
-        $this->password = $password;
-        $this->id = $id;
+        $parameters = func_get_args();
+        $this->name = $parameters[0];
+        $this->surname = $parameters[1];
+        $this->email = $parameters[2];
+        $this->password = $parameters[3];
+        $this->id = $parameters[4];
 
     }
 

@@ -1,7 +1,11 @@
+html{
+    overflow: hidden;
+}
 body {
     margin: 0;
     width: 100vw;
     height: 100vh;
+    overflow: hidden;
     
 }
 
@@ -86,6 +90,10 @@ input {
 }
 
 @media only screen and (max-device-width: 420px) {
+    body{
+        overflow: hidden;
+    }
+
     .container {
         flex-direction: column;
     }
@@ -266,7 +274,6 @@ header>img {
     display: flex;
     justify-content: center;
     font-size: 1.5vh;
-    width: 80vw;
     height: auto;
 
     background: #FFFFFF 0% 0% no-repeat padding-box;
@@ -278,6 +285,10 @@ header>img {
 
 
 @media only screen and (max-device-width: 420px) {
+    input, button {
+        font-size: 1.35em;
+    }
+
     .base-container {
         flex-direction: column;
         height: 100vh;
@@ -307,9 +318,12 @@ header>img {
         width:100vw !important;
     }
 
-    .search-bar {
-        height: 10vh;
-        
+    .search-bar{
+        width: 80%;
+    }
+
+    .search-bar>input {
+        width: 82%;
     }
 
     header>img {

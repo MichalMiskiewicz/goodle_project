@@ -5,7 +5,7 @@
     <script src="https://kit.fontawesome.com/2715bae171.js" crossorigin="anonymous"></script>
     <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="../script/navbar.js"></script>
-    <title>SignIn</title>
+    <title>Register</title>
 </head>
 <body>
     <div class="base-container">
@@ -19,5 +19,4 @@
               </form>
         </main>
     </div>
-    
 </body>

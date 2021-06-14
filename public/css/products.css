@@ -130,7 +130,7 @@ section {
         color:white;
         margin: 0;
         width: fit-content;
-        font-size: 2vh;
+        font-size: 1.2vh;
     }
 
     header {
@@ -191,6 +191,8 @@ section {
         align-items: center;
         box-shadow: 0 0 2em #D43F07;
         z-index: 100;
+        position: fixed;
+        bottom: -1px;
     }
 
     #footer:hover {
@@ -200,12 +202,11 @@ section {
     #footer>ul{
         height: 5vh;
         align-items: center;
-        width: auto;
         margin: auto auto;
     }
 
     #footer>ul>li{
-        width: 33vw; 
+        width: 30vw;
         height: 5vh;
         margin: auto;
        /*border-bottom: 1px solid #F55007B2;*/ 

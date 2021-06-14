@@ -34,19 +34,19 @@ class ProductController extends AppController
         }else{
             $this->render('addproduct', ["messages" => $this->messages]);
         }
-
-
     }
 
     public function products(){
         parent::cookie();
-        $this->render('products', ['messages' => $this->messages, 'products' => $this->productRepository->getProducts("all")]);
+        $this->render('products', ['messages' => $this->messages, 'products' =>
+            $this->productRepository->getProducts("all")]);
 
     }
 
     public function favourites(){
         parent::cookie();
-        $this->render('products', ['messages' => $this->messages, 'products' => $this->productRepository->getProducts("favourites")]);
+        $this->render('products', ['messages' => $this->messages, 'products' =>
+            $this->productRepository->getProducts("favourites")]);
     }
 
     public function search(){

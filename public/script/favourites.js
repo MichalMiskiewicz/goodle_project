@@ -1,6 +1,5 @@
 const fav = document.querySelector("#fav");
 const productContainer = document.querySelector(".products");
-
 fav.addEventListener("click", function (){
         fetch("/favourites", {
             method: "POST",

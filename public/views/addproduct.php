@@ -10,20 +10,7 @@
 </head>
 <body>
     <div class="base-container">
-        <button id="bt_nav" onclick="showhideNav()">></button>
-        <nav id="navigation">
-            <img src="public/img/logo.svg">
-            <ul>
-                <li><a href="products" class="button">products</a></li>
-                <li><a id="fav" href="favourites" class="button">favourites</a></li>
-                <li><a href="addproduct" style="color: #fad765b2" class="button">add product</a></li>
-            </ul>
-            <div class="username">
-                <a href="logout" class="sing-out"><i class="fas fa-sign-out-alt"></i></a>
-                <p style="color:black;"><?php echo explode('@id', $_COOKIE['accept'])[0];?></p>
-            </div>
-           
-        </nav>
+        <?php include('navigation.php') ?>
         <main>
              <form id="addform" class="addproduct" action="addproduct" method="POST" ENCTYPE="multipart/form-data">
                  <div class="messages">
@@ -47,13 +34,7 @@
                 <input class="bt" id="add" value="ADD" type="submit">
               </form>
         </main>
-        <div id="footer">
-            <ul>
-                <li><a href="products" class="button">products</a></li>
-                <li><a href="favourites" class="button">favourites</a></li>
-                <li><a href="addproduct" style="color: #fad765b2" class="button">add product</a></li>
-            </ul>
-        </div>
+        <?php include('footer.php') ?>
     </div>
     
 </body>
