@@ -34,8 +34,6 @@ class AppController {
     }
 
     protected function cookie(){
-        /*if(!isset($_SESSION['accept']))
-            header("Location: http://$_SERVER[HTTP_HOST]");*/
         if(!isset($_COOKIE['accept']))
             header("Location: http://$_SERVER[HTTP_HOST]");
     }

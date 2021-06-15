@@ -9,8 +9,9 @@ class Product
     private $like;
     private $dislike;
     private $id;
+    private $idAssignedBy;
 
-    public function __construct($title, $description, $image, $like = 0, $dislike = 0, $id = null)
+    public function __construct($title, $description, $image, $like = 0, $dislike = 0, $id = null, $idAssignedBy = null)
     {
         $this->title = $title;
         $this->description = $description;
@@ -18,6 +19,7 @@ class Product
         $this->like = $like;
         $this->dislike = $dislike;
         $this->id = $id;
+        $this->idAssignedBy = $idAssignedBy;
     }
 
     public function getTitle(): string
@@ -79,6 +81,17 @@ class Product
     {
         $this->id = $id;
     }
+
+    public function getIdAssignedBy()
+    {
+        return $this->idAssignedBy;
+    }
+
+    public function setIdAssignedBy($idAssignedBy): void
+    {
+        $this->idAssignedBy = $idAssignedBy;
+    }
+
 
 
 

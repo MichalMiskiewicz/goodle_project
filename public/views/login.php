@@ -22,6 +22,7 @@
                 <input name="password" type="password" placeholder="password">
                 <button type="submit">login</button>
                 <button><a href="registration">register</a></button>
+                <button><a href="products">I'm a Guest</a></button>
             </form>
         </div>
     </div>

@@ -7,11 +7,12 @@
     <script type="text/javascript" src="public/script/navbar.js" defer></script>
     <script type="text/javascript" src="public/script/search.js" defer></script>
     <script type="text/javascript" src="public/script/statistics.js" defer></script>
+    <script type="text/javascript" src="public/script/delete.js" defer></script>
     <title>Products</title>
 </head>
 <body>
     <div class="base-container">
-        <?php include('navigation.php') ?>
+        <?php include('navigation.php'); ?>
         <main>
             <header>
                 <img src="public/img/logo.svg">
@@ -21,7 +22,12 @@
             </header>
             <section class="products">
                 <?php foreach ($products as $product){
-                    echo '<div id="'.$product->getId().'"><img src="public/uploads/'.$product->getImage().'">
+                    echo '<div style="position: relative;" id="'.$product->getId().'">';
+                    if(isset($_COOKIE['accept']) && explode('@id',
+                            $_COOKIE['accept'])[1] == $product->getIdAssignedBy()){
+                        echo '<button id="delete" style="height:1em; background-color: red; margin:0;"><a>X</a></button>';
+                    }
+                    echo '<img src="public/uploads/'.$product->getImage().'">
                     <div>
                         <h2>'.$product->getTitle().'</h2>
                         <p>'.$product->getDescription().'</p>
@@ -34,7 +40,7 @@
                 }; ?>
             </section>
         </main>
-        <?php include('footer.php') ?>
+        <?php include('footer.php'); ?>
     </div>
 </body>
 

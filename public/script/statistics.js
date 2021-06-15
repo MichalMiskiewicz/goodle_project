@@ -50,6 +50,8 @@ function giveDislike(){
             }
         })
 }
-
-likeButtons.forEach(button => button.addEventListener("click", giveLike));
-dislikeButtons.forEach(button => button.addEventListener("click", giveDislike));
+console.log(document.cookie.split("=")[0]);
+if(document.cookie.split("=")[0]) {
+    likeButtons.forEach(button => button.addEventListener("click", giveLike));
+    dislikeButtons.forEach(button => button.addEventListener("click", giveDislike));
+}

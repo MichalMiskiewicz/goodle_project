@@ -29,7 +29,8 @@ class ProductRepository extends Repository
                 $product['image'],
                 $product['like'],
                 $product['dislike'],
-                $product['id']
+                $product['id'],
+                $product['id_assigned_by']
             );
         }
         return $productsTable;
@@ -46,6 +47,16 @@ class ProductRepository extends Repository
             $assignedById,
             $product->getImage()
         ]);
+    }
+
+    public function deleteProduct($id) {
+        $stmt = $this->database->connect()->prepare('DELETE FROM public.product WHERE id = :id AND 
+                                                           id_assigned_by = :iduser;');
+
+        $id_user = (int)explode('@id', $_COOKIE['accept'])[1];
+        $stmt->bindParam(':iduser', $id_user, PDO::PARAM_INT);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
     }
 
     public function getProductByKeywords(string $search){

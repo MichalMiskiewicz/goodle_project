@@ -36,8 +36,14 @@ class ProductController extends AppController
         }
     }
 
-    public function products(){
+    public function deleteProduct($id){
         parent::cookie();
+        $this->productRepository->deleteProduct($id);
+        return "Usunięto product";
+    }
+
+    public function products(){
+       // parent::cookie();
         $this->render('products', ['messages' => $this->messages, 'products' =>
             $this->productRepository->getProducts("all")]);
 

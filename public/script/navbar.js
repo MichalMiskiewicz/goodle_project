@@ -1,23 +1,17 @@
-window.onload = function() {
-    $('.username>p').click(function() {
-        $(location).attr('href', 'login.html')
-    });
-};
-
 function showhideNav(){
-    if ($('#navigation').css('left') == '0px') {
-        $('nav').css('left', '-100vw');
-        var newWidth = $('#navigation').width() * (100 / document.documentElement.clientWidth);
-        setTimeout(() => {  $('header>img').css('opacity', '1');}, 500);
-        setTimeout(() => {  $('main').css('transition-property', 'none'); }, 1000);
-        $('#bt_nav').text('>');
+    if (document.querySelector("#navigation").style.left === '0px') {
+        document.querySelector("nav").style.left = "-100vw";
+        let newWidth = document.querySelector("#navigation").style.width * (100 / document.documentElement.clientWidth);
+        setTimeout(() => {  document.querySelector("header>img").style.opacity = "1";}, 500);
+        setTimeout(() => {  document.querySelector("main").style.transition = "none"; }, 1000);
+        document.querySelector("#bt_nav").innerHTML = ">";
 
     }else{
-        $('header>img').css('opacity', '0');
-        $('#navigation').css('width', '15vw');
-        $('#navigation').css('left', '0');
-        $('#bt_nav').text('X');
-        var newWidth = $('#navigation').width() * (100 / document.documentElement.clientWidth);
-        setTimeout(() => {  $('main').css('transition-property', 'none'); }, 500);
+        document.querySelector("header>img").style.opacity = "0";
+        document.querySelector("#navigation").style.width = "15vw";
+        document.querySelector("#navigation").style.left = "0";
+        document.querySelector("#bt_nav").innerHTML = "X";
+        let newWidth = document.querySelector("#navigation").style.width * (100 / document.documentElement.clientWidth);
+        setTimeout(() => {  document.querySelector("main").style.transition = "none"; }, 500);
     }
 }
