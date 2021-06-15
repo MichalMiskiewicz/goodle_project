@@ -29,7 +29,7 @@ class Routing extends AppController {
             $action= 'index';
         }
 
-        $id = $urlParts[1] ?? ''; //czy to integer, mapowanie czy taka wartosc mozna przekazac do danej metody z controllera
+        $id = $urlParts[1] ?? '';
         $object->$action($id);
     }
 }

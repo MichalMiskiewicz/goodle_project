@@ -4,7 +4,6 @@
     <link rel="stylesheet" type="text/css" href="public/css/products.css">
     <link rel="stylesheet" type="text/css" href="public/css/addproduct.css">
     <script src="https://kit.fontawesome.com/2715bae171.js" crossorigin="anonymous"></script>
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
     <script src="public/script/navbar.js"></script>
     <title>Add Product</title>
 </head>

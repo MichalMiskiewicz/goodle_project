@@ -1,4 +1,5 @@
 const search = document.querySelector('input[placeholder="search"]');
+const fav = document.querySelector("#fav");
 const productContainer = document.querySelector(".products");
 
 search.addEventListener("keyup", function (event){
@@ -21,6 +22,21 @@ search.addEventListener("keyup", function (event){
            loadProducts(products);
        })
    }
+});
+
+fav.addEventListener("click", function (){
+    fetch("/favourites", {
+        method: "POST",
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    }).then(function (response) {
+        console.log(response);
+        return response.json();
+    }).then(function (products){
+        productContainer.innerHTML="";
+        loadProducts(products);
+    })
 });
 
 function loadProducts(products){

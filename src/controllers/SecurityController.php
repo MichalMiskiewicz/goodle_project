@@ -39,8 +39,6 @@ class SecurityController extends AppController
     }
 
     public function logout(){
-        //session_destroy();
-       // $_SESSION = array();
         setcookie("accept", "", time() - 3600);
         header("Location: http://$_SERVER[HTTP_HOST]");
         exit();
